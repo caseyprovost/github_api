@@ -61,6 +61,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     database_cleaner (1.7.0)
@@ -155,8 +156,18 @@ GEM
     parser (2.6.5.0)
       ast (~> 2.4.0)
     pg (1.1.4)
-    puma (3.12.1)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.7.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
+    puma (4.2.0)
+      nio4r (~> 2.0)
     rack (2.0.7)
+    rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.0)
@@ -257,7 +268,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  byebug
   database_cleaner (~> 1.7)
   factory_bot_rails (~> 5.0)
   faker (~> 2.5)
@@ -267,7 +277,10 @@ DEPENDENCIES
   kaminari (~> 1.1)
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.1)
-  puma (~> 3.11)
+  pry-byebug
+  pry-rails
+  puma (~> 4.2)
+  rack-cors
   rails (~> 6.0.0)
   responders (~> 3.0)
   rspec-rails (~> 4.0.0beta2)
@@ -278,7 +291,7 @@ DEPENDENCIES
   vandal_ui
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.0.2
