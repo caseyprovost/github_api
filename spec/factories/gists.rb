@@ -6,7 +6,7 @@ FactoryBot.define do
     git_pull_url { Faker::Internet.url }
     git_push_url { Faker::Internet.url }
     public { false }
-    description { Faker::Lorem.paragraph }}
+    description { Faker::Lorem.paragraph }
     user { nil }
     association :owner, factory: :user
   end

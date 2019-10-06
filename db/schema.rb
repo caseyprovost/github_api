@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_044544) do
+ActiveRecord::Schema.define(version: 2019_10_06_045447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,39 @@ ActiveRecord::Schema.define(version: 2019_10_06_044544) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_id"], name: "index_gists_on_owner_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
+  end
+
+  create_table "repositories", force: :cascade do |t|
+    t.string "node_id", null: false
+    t.string "name", null: false
+    t.string "full_name"
+    t.bigint "owner_id", null: false
+    t.boolean "is_private", default: false, null: false
+    t.string "html_url"
+    t.text "description"
+    t.boolean "fork"
+    t.string "url"
+    t.string "archive_url"
+    t.string "clone_url"
+    t.string "mirror_url"
+    t.string "hooks_url"
+    t.string "svn_url"
+    t.string "homepage"
+    t.string "language"
+    t.string "default_branch"
+    t.boolean "is_template", default: false, null: false
+    t.text "topics"
+    t.boolean "has_issues", default: false, null: false
+    t.boolean "has_projects", default: false, null: false
+    t.boolean "has_wiki", default: false, null: false
+    t.boolean "has_pages", default: false, null: false
+    t.boolean "has_downloads", default: false, null: false
+    t.boolean "archived", default: false, null: false
+    t.boolean "disabled", default: false, null: false
+    t.datetime "pushed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_repositories_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,4 +115,5 @@ ActiveRecord::Schema.define(version: 2019_10_06_044544) do
   add_foreign_key "followings", "users", column: "target_id"
   add_foreign_key "gists", "users"
   add_foreign_key "gists", "users", column: "owner_id"
+  add_foreign_key "repositories", "users", column: "owner_id"
 end
