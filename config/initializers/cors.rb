@@ -3,10 +3,10 @@ Rails.application.configure do |config|
     allow do
       origins "*"
       resource "/api/v5/*",
-        headers: %w(Authorization),
+        headers: %w[Authorization],
         methods: :any,
         max_age: 600,
-        expose: %w(Authorization)
+        expose: %w[Authorization]
     end
   end
 end

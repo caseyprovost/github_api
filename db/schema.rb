@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_042907) do
+ActiveRecord::Schema.define(version: 2019_10_06_044544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2019_10_06_042907) do
     t.index ["follower_id", "target_id"], name: "index_followings_on_follower_id_and_target_id", unique: true
     t.index ["follower_id"], name: "index_followings_on_follower_id"
     t.index ["target_id"], name: "index_followings_on_target_id"
+  end
+
+  create_table "gists", force: :cascade do |t|
+    t.string "url"
+    t.string "node_id"
+    t.string "html_url"
+    t.string "git_pull_url"
+    t.string "git_push_url"
+    t.boolean "public"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_gists_on_owner_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +80,6 @@ ActiveRecord::Schema.define(version: 2019_10_06_042907) do
 
   add_foreign_key "followings", "users", column: "follower_id"
   add_foreign_key "followings", "users", column: "target_id"
+  add_foreign_key "gists", "users"
+  add_foreign_key "gists", "users", column: "owner_id"
 end
