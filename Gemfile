@@ -21,6 +21,8 @@ gem "kaminari", "~> 1.1"
 gem "responders", "~> 3.0"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rack-cors"
+gem "devise-jwt", "~> 0.5.9"
+gem "devise"
 # gem "graphiti_docs", path: "lib/graphiti_docs"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
