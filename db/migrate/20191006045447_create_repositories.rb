@@ -4,11 +4,11 @@ class CreateRepositories < ActiveRecord::Migration[6.0]
       t.string :node_id, null: false
       t.string :name, null: false
       t.string :full_name
-      t.references :owner, null: false, foreign_key: { to_table: :users }
+      t.references :owner, null: false, foreign_key: {to_table: :users}
       t.boolean :is_private, default: false, null: false
       t.string :html_url
       t.text :description
-      t.boolean :fork
+      t.boolean :fork, default: false, null: false
       t.string :url
       t.string :archive_url
       t.string :clone_url

@@ -27,5 +27,9 @@ FactoryBot.define do
     archived { false }
     disabled { false }
     pushed_at { Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :all) }
+
+    trait :fork do
+      fork { true }
+    end
   end
 end
