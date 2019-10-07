@@ -43,6 +43,7 @@ group :development, :test do
   gem "standard"
   gem "pry-rails"
   gem "pry-byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "dotenv-rails"
 end
 
 group :test do
