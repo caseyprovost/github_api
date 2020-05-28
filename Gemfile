@@ -17,7 +17,7 @@ gem "puma", "~> 4.2"
 gem "graphiti"
 gem "graphiti-rails"
 gem "vandal_ui"
-gem "kaminari", "~> 1.1"
+gem "kaminari", "~> 1.2"
 gem "responders", "~> 3.0"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rack-cors", ">= 1.0.4"
